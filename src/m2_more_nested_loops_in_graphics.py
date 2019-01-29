@@ -4,8 +4,8 @@ in the context of TWO-DIMENSIONAL GRAPHICS.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Jason Ims.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -30,6 +30,20 @@ def run_test_draw_upside_down_wall():
 
 
 def draw_upside_down_wall(rectangle, n, window):
+    length = abs(rectangle.corner_1.x - rectangle.corner_2.x)
+    height = abs(rectangle.corner_1.y - rectangle.corner_2.y)
+    for k in range(n):
+        for i in range(k+1):
+            pt1 = (rectangle.corner_1.x + (i * length))
+            pt2 = (rectangle.corner_2.x + (i * length))
+            row = rg.Rectangle(rg.Point(pt1,rectangle.corner_1.y),rg.Point(pt2,rectangle.corner_2.y))
+            row.attach_to(window)
+            window.render()
+        rectangle.corner_1.x = rectangle.corner_1.x - length/2
+        rectangle.corner_2.x = rectangle.corner_2.x - length/2
+        rectangle.corner_2.y = rectangle.corner_2.y - height
+        rectangle.corner_1.y = rectangle.corner_1.y - height
+
     """
     See   MoreWalls.pdf   in this project for pictures that may
     help you better understand the following specification:
@@ -50,10 +64,9 @@ def draw_upside_down_wall(rectangle, n, window):
     and n is nonnegative.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #     Some tests are already written for you (above).
     # -------------------------------------------------------------------------
-
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
