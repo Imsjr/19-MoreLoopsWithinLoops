@@ -365,7 +365,7 @@ def first_is_elsewhere_too(seq_seq):
                 if seq_seq[0][k]==new[j]:
                     return True
     return False
-  
+
     """
     Given a sequence of subsequences:
       -- Returns True if any element of the first (initial) subsequence
@@ -398,7 +398,7 @@ def first_is_elsewhere_too(seq_seq):
     and the given argument is a sequence of sequences.
     """
     # -------------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # Done: 6. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
